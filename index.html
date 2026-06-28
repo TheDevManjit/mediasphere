@@ -21,7 +21,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>भारत समाचार — हिंदी न्यूज़, विश्वसनीय पत्रकारिता</title>
-    <script type="module" crossorigin src="/mediasphere/assets/index-CODFlve6.js"></script>
+    <!-- GitHub Pages SPA: decode ?p=/ redirect from 404.html back into real history path -->
+    <script>
+      (function () {
+        var qs = window.location.search;
+        if (qs.indexOf('?p=/') === 0 || qs.indexOf('p=/') > -1) {
+          var params = qs.slice(1).split('&').reduce(function (p, s) {
+            var r = s.split('=');
+            p[decodeURIComponent(r[0])] = decodeURIComponent(r.slice(1).join('=').replace(/~and~/g, '&'));
+            return p;
+          }, {});
+          if (params.p !== undefined) {
+            window.history.replaceState(
+              null, null,
+              window.location.pathname + (params.p || '/') +
+              (params.q ? '?' + params.q : '') +
+              window.location.hash
+            );
+          }
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/mediasphere/assets/index-CTIXYBIi.js"></script>
     <link rel="stylesheet" crossorigin href="/mediasphere/assets/index-C8uRQBt_.css">
   </head>
   <body>

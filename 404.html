@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <title>भारत समाचार</title>
+  <script>
+    // GitHub Pages SPA redirect trick.
+    // When GH Pages can't find a route (e.g. /mediasphere/about),
+    // it serves this 404.html. We encode the path into the query string
+    // and redirect back to index.html, which decodes it and navigates correctly.
+    var segmentCount = 1; // number of path segments in your repo name (/mediasphere = 1)
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.host + '/' +
+      l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
+      l.pathname.split('/').slice(1 + segmentCount).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
+</head>
+<body>रीडायरेक्ट हो रहा है…</body>
+</html>
